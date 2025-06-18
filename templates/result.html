@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Report for {{ student_id }}</title>
+  <style>
+    body { font-family: sans-serif; background: #eef2f3; padding: 40px; }
+    .report {
+      background: white;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 { text-align: center; color: #333; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    .summary {
+      margin-top: 20px;
+      font-size: 1.1em;
+    }
+    a {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="report">
+    <h2>Grade Report for {{ student_id }}</h2>
+    <table>
+      <tr>
+        <th>Subject</th>
+        <th>Credits</th>
+        <th>Grade</th>
+        <th>Grade Point</th>
+      </tr>
+      {% for subject in subjects %}
+      <tr>
+        <td>{{ subject.name }}</td>
+        <td>{{ subject.credits }}</td>
+        <td>{{ subject.grade }}</td>
+        <td>{{ subject.grade_point }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <a href="/">← Check another student</a>
+  </div>
+</body>
+</html>
